@@ -8013,10 +8013,10 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-puppet-strings@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/puppet-strings/-/puppet-strings-2.3.1.tgz#5c36a08529b3b447cf99232c8ede9f5008ced22a"
-  integrity sha512-Fzr4lUVrPZwgOCKIx+i6e4XNEX0TX0nfuoUHwB7SZVSfleqJYZdyJhEKdwBkX1aICoD4eE6IIP/qFahulg9EqQ==
+puppet-strings@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/puppet-strings/-/puppet-strings-2.3.2.tgz#579e591d5dbd39d17c9b2807b8819890a09dacb7"
+  integrity sha512-8IeFD9lwgxHJm+T9QaYEczIXamg1p4I3o8qKyqMbuQDYGbNyydYUixZLujgmpyToLN26964ssymvMelhAiJTsw==
   dependencies:
     css-to-xpath "^0.1.0"
     geckodriver "^1.14.1"
