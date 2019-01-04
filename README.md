@@ -27,7 +27,7 @@ render(<div>Hello World!</div>, window.root)
 
 ### `test.js`
 ```js
-import { closeBrowser, findElement } from 'puppet-strings'
+import { closeTab, findElement } from 'puppet-strings'
 import openApp from 'puppet-strings-open-app'
 
 async function run() {
@@ -36,7 +36,7 @@ async function run() {
 
   console.log(root.innerText)
 
-  await closeBrowser(app)
+  await closeTab(app)
 }
 
 run()
