@@ -1,8 +1,13 @@
 {
   "name": "puppet-strings-open-app",
   "version": "0.0.0",
-  "description": "An awesome package",
-  "keywords": [],
+  "description": "An extension to puppet-strings for compiling and opening a web application in Chrome",
+  "keywords": [
+    "chrome",
+    "bundle",
+    "compile",
+    "test"
+  ],
   "homepage": "https://github.com/vinsonchuong/puppet-strings-open-app",
   "bugs": "https://github.com/vinsonchuong/puppet-strings-open-app/issues",
   "license": "MIT",
@@ -14,13 +19,20 @@
     "release": "semantic-release",
     "prepack": "build-esm"
   },
-  "dependencies": {},
+  "dependencies": {
+    "get-port": "^4.1.0",
+    "parcel-bundler": "^1.11.0",
+    "puppet-strings": "^2.3.1",
+    "tempy": "^0.2.1"
+  },
   "devDependencies": {
     "ava": "^1.0.1",
     "build-esm": "^4.2.0",
     "flow-bin": "^0.89.0",
     "flow-typed": "^2.5.1",
     "overdub": "^2.2.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "semantic-release": "^15.13.2",
     "standard-esnext": "^5.2.1"
   },
