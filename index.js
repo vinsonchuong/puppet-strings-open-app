@@ -15,9 +15,12 @@ export default async function(appPath: string): Promise<Tab> {
     logLevel: 1
   })
   const port = await getPort()
-  const server = await bundler.serve(port)
 
-  const browser = await openChrome()
+  const [server, browser] = await Promise.all([
+    bundler.serve(port),
+    openChrome()
+  ])
+
   const tab = await openTab(browser, `http://localhost:${port}`)
 
   // Always true--to appease the type-checker
