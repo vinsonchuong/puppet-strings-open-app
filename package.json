@@ -22,7 +22,7 @@
   "dependencies": {
     "get-port": "^4.1.0",
     "parcel-bundler": "^1.11.0",
-    "puppet-strings": "^2.3.2",
+    "puppet-strings": "^2.4.0",
     "tempy": "^0.2.1"
   },
   "devDependencies": {
