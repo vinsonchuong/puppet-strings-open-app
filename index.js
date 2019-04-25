@@ -11,10 +11,23 @@ import {
 
 export default async function(appPath: string): Promise<Tab> {
   const port = await getPort()
-  const server = await startServer(
-    port,
-    respondToRequests(serveUi({ entry: appPath, log: () => () => {} }))
-  )
+  const server = await new Promise((resolve, reject) => {
+    const server = startServer(
+      port,
+      respondToRequests(
+        serveUi({
+          entry: appPath,
+          log: () => endLog => {
+            if (endLog.error) {
+              reject(endLog.error)
+            } else {
+              resolve(server)
+            }
+          }
+        })
+      )
+    )
+  })
 
   const browser = await openChrome()
   const tab = await openTab(browser, `http://localhost:${port}`)
