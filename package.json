@@ -1,7 +1,7 @@
 {
   "name": "puppet-strings-open-app",
   "version": "0.0.0",
-  "description": "An extension to puppet-strings for compiling and opening a web application in Chrome",
+  "description": "An extension to puppet-strings for compiling and opening a web application in a browser",
   "keywords": [
     "chrome",
     "bundle",
@@ -20,13 +20,13 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "passing-notes": "^5.3.2",
-    "puppet-strings": "^2.4.1"
+    "passing-notes": "^5.3.3",
+    "puppet-strings": "^3.1.0"
   },
   "devDependencies": {
     "ava": "^1.4.1",
     "build-esm": "^4.2.1",
-    "flow-bin": "^0.97.0",
+    "flow-bin": "^0.98.0",
     "flow-typed": "^2.5.1",
     "overdub": "^2.3.1",
     "react": "^16.8.6",
