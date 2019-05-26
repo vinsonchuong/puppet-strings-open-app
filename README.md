@@ -5,7 +5,7 @@
 [![devDependencies Status](https://david-dm.org/vinsonchuong/puppet-strings-open-app/dev-status.svg)](https://david-dm.org/vinsonchuong/puppet-strings-open-app?type=dev)
 
 An extension to [puppet-strings](https://github.com/vinsonchuong/puppet-strings)
-for compiling and opening a web application in a browser
+for compiling and opening a web application in Chrome
 
 ## Example
 
@@ -31,7 +31,7 @@ import { closeTab, findElement } from 'puppet-strings'
 import openApp from 'puppet-strings-open-app'
 
 async function run() {
-  const app = await openApp('chromium', app/index.html')
+  const app = await openApp('app/index.html')
   const root = await findElement(app, '#root')
 
   console.log(root.innerText)

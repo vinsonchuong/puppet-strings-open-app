@@ -1,6 +1,7 @@
 /* @flow */
 import type { Tab } from 'puppet-strings'
-import { openBrowser, openTab, closeBrowser } from 'puppet-strings'
+import { openTab, closeBrowser } from 'puppet-strings'
+import { openChrome } from 'puppet-strings-chrome'
 import {
   getPort,
   startServer,
@@ -9,10 +10,7 @@ import {
   serveUi
 } from 'passing-notes'
 
-export default async function(
-  browserPath: string,
-  appPath: string
-): Promise<Tab> {
+export default async function(appPath: string): Promise<Tab> {
   const port = await getPort()
   const server = await new Promise((resolve, reject) => {
     const server = startServer(
@@ -32,7 +30,7 @@ export default async function(
     )
   })
 
-  const browser = await openBrowser(browserPath)
+  const browser = await openChrome()
   const tab = await openTab(browser, `http://localhost:${port}`)
 
   // Always true--to appease the type-checker
