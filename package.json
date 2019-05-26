@@ -20,18 +20,18 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "passing-notes": "^5.3.3",
-    "puppet-strings": "^3.1.0"
+    "passing-notes": "^5.3.5",
+    "puppet-strings": "^3.1.2"
   },
   "devDependencies": {
     "ava": "^1.4.1",
     "build-esm": "^4.2.1",
-    "flow-bin": "^0.98.0",
-    "flow-typed": "^2.5.1",
+    "flow-bin": "^0.98.1",
+    "flow-typed": "^2.5.2",
     "overdub": "^2.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "semantic-release": "^15.13.3",
+    "semantic-release": "^15.13.12",
     "standard-esnext": "^5.3.0"
   },
   "ava": {
