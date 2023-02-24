@@ -1,5 +1,5 @@
-/* eslint-disable */
-import React from 'react'
-import { render } from 'react-dom'
+/* eslint-disable no-undef */
+import {createRoot} from 'react-dom/client'
+import {html} from 'htm/react'
 
-render(<div>Hello World!</div>, window.root)
+createRoot(window.root).render(html`<div>Hello World!</div>`)

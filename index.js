@@ -1,44 +1,32 @@
-/* @flow */
-import type { Tab } from 'puppet-strings'
-import { openTab, closeBrowser } from 'puppet-strings'
-import { openChrome } from 'puppet-strings-chrome'
-import {
-  getPort,
-  startServer,
-  stopServer,
-  respondToRequests,
-  serveUi
-} from 'passing-notes'
+import {openTab, closeBrowser} from 'puppet-strings'
+import {openChrome} from 'puppet-strings-chrome'
+import getPort from 'get-port'
+import {startServer, stopServer, Logger, compose} from 'passing-notes'
+import serveUi from 'passing-notes-ui'
 
-export default async function(appPath: string): Promise<Tab> {
+export const logger = new Logger()
+
+export default async function openApp(appPath) {
   const port = await getPort()
-  const server = await new Promise((resolve, reject) => {
-    const server = startServer(
-      port,
-      respondToRequests(
-        serveUi({
-          entry: appPath,
-          log: () => endLog => {
-            if (endLog.error) {
-              reject(endLog.error)
-            } else {
-              resolve(server)
-            }
-          }
-        })
-      )
-    )
-  })
+  const server = await startServer(
+    {port},
+    compose(
+      serveUi({
+        path: appPath,
+        logger,
+      }),
+      () => () => ({status: 404}),
+    ),
+  )
 
   const browser = await openChrome()
-  const tab = await openTab(browser, `http://localhost:${port}`)
+  const tab = await openTab(browser, `http://localhost:${port}`, {
+    timeout: 30_000,
+  })
 
-  // Always true--to appease the type-checker
-  if (tab.puppeteer) {
-    tab.puppeteer.page.close = async () => {
-      await closeBrowser(browser)
-      await stopServer(server)
-    }
+  tab.puppeteer.page.close = async () => {
+    await closeBrowser(browser)
+    await stopServer(server)
   }
 
   return tab
