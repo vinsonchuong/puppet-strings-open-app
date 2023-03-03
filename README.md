@@ -1,6 +1,6 @@
 # puppet-strings-open-app
 ![npm](https://img.shields.io/npm/v/puppet-strings-open-app.svg)
-[![Build Status](https://travis-ci.org/vinsonchuong/puppet-strings-open-app.svg?branch=master)](https://travis-ci.org/vinsonchuong/puppet-strings-open-app)
+[![CI Status](https://github.com/vinsonchuong/puppet-strings-open-app/workflows/CI/badge.svg)](https://github.com/vinsonchuong/create-npm/actions?query=workflow%3ACI)
 [![dependencies Status](https://david-dm.org/vinsonchuong/puppet-strings-open-app/status.svg)](https://david-dm.org/vinsonchuong/puppet-strings-open-app)
 [![devDependencies Status](https://david-dm.org/vinsonchuong/puppet-strings-open-app/dev-status.svg)](https://david-dm.org/vinsonchuong/puppet-strings-open-app?type=dev)
 
