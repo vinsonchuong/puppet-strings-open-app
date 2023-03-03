@@ -6,13 +6,14 @@ import serveUi from 'passing-notes-ui'
 
 export const logger = new Logger()
 
-export default async function openApp(appPath) {
+export default async function openApp({path, files}) {
   const port = await getPort()
   const server = await startServer(
     {port},
     compose(
       serveUi({
-        path: appPath,
+        path,
+        files,
         logger,
       }),
       () => () => ({status: 404}),

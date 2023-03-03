@@ -5,41 +5,54 @@
 [![devDependencies Status](https://david-dm.org/vinsonchuong/puppet-strings-open-app/dev-status.svg)](https://david-dm.org/vinsonchuong/puppet-strings-open-app?type=dev)
 
 An extension to [puppet-strings](https://github.com/vinsonchuong/puppet-strings)
-for compiling and opening a web application in Chrome
+for compiling and opening a web UI in Chrome.
 
 ## Example
+To test a React component in isolation within Chrome:
 
-### `app/index.html`
-```html
-<!doctype html>
-<meta charset="utf-8">
-<script async src="index.js"></script>
-<div id="root"></div>
+### `ui/component.js`
+```javascript
+import { html } from 'htm/react'
+
+export default function Component() {
+  return html`
+    <div>Hello World!</div>
+  `
+}
 ```
 
-### `app/index.js`
-```js
-import React from 'react'
-import { render } from 'react-dom'
-
-render(<div>Hello World!</div>, window.root)
-```
-
-### `test.js`
-```js
+### `ui/component.test.js`
+```javascript
+import test from 'ava'
 import { closeTab, findElement } from 'puppet-strings'
 import openApp from 'puppet-strings-open-app'
 
-async function run() {
-  const app = await openApp('app/index.html')
-  const root = await findElement(app, '#root')
+test('rendering in a browser', async (t) => {
+  const app = await openApp({
+    path: './app',
+    files: {
+      'index.html': `
+        <!doctype html>
+        <script type="module" src="/index.js"></script>
+        <div></div>
+      `,
+      'index.js': `
+        import { createRoot } from 'react-dom/client'
+        import { html } from 'htm/react'
+        import Component from './component'
 
-  console.log(root.innerText)
+        const root = createRoot(document.body.firstElementChild)
+        root.render(html\`<\${Component} />\`)
+      `
+    }
+  })
+  t.teardown(async () => {
+    await closeTab(app)
+  })
 
-  await closeTab(app)
-}
-
-run()
+  const root = await findElement(app, 'div')
+  t.is(root.innerText, 'Hello World!')
+})
 ```
 
 
