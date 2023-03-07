@@ -14,6 +14,7 @@
   "author": "Vinson Chuong <vinsonchuong@gmail.com>",
   "type": "module",
   "repository": "vinsonchuong/puppet-strings-open-app",
+  "main": "index.js",
   "scripts": {
     "test": "xo && ava",
     "release": "semantic-release"
