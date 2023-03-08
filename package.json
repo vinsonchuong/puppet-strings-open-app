@@ -23,7 +23,7 @@
     "get-port": "^6.1.2",
     "passing-notes": "^6.5.7",
     "passing-notes-ui": "^1.2.1",
-    "puppet-strings": "^4.1.3",
+    "puppet-strings": "^5.0.1",
     "puppet-strings-chrome": "^2.0.3"
   },
   "devDependencies": {
