@@ -1,5 +1,8 @@
 name: CI
-on: push
+on:
+  push:
+    branches:
+      - master
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -7,12 +10,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: current
+        node-version: latest
         cache: yarn
     - run: yarn
     - run: yarn test
-    - if: github.ref == 'refs/heads/master'
-      run: yarn release
+    - run: yarn release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
